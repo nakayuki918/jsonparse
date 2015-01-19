@@ -20,22 +20,23 @@
       for (var i = 0; i < feedData.length; i++) {
 
         var entryTitle = feedData[i].title, // タイトル取得
-            entryImg = feedData[i].content.match(/(http:){1}[\S_-]+\.(?:jpg|gif|png)/); //画像取得
-            entryDate = new Date(feedData[i].publishedDate);
-
-          if( entryDate !== null) {
-            strDate = (entryDate.getMonth() + 1) + '月' + entryDate.getDate() + '日';
-          }
+            entryImg = feedData[i].content.match(/(http:){1}[\S_-]+\.(?:jpg|gif|png)/), //画像取得
+            entryDate = new Date(feedData[i].publishedDate),
+            strDate = (entryDate.getMonth() + 1) + '月' + entryDate.getDate() + '日',
+            entryLink = feedData[i].link;
 
         htmlstr +=
           '<li>' +
           '<span class="date">' + strDate + '</span>' +
-          '<h2 clas="title">' + entryTitle + '</h2>' +
+          '<h2 clas="title">' +
+          '<a href="'+ entryLink + '" >' +  entryTitle + '</a>'+
+          '</h2>' +
           '<img src="' + entryImg[0] + '" alt="" />' +
           '</li>';
       }
 
       $wrapper.html('<ul>' + htmlstr + '</ul>');
+
     };
   });
 })(window, jQuery);
