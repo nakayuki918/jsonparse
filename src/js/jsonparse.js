@@ -27,11 +27,11 @@
 
         htmlstr +=
           '<li>' +
+          '<a href="'+ entryLink + '" >' +
+          '<img src="' + entryImg[0] + '" alt=""  class="img"/>' +
           '<span class="date">' + strDate + '</span>' +
-          '<h2 clas="title">' +
-          '<a href="'+ entryLink + '" >' +  entryTitle + '</a>'+
-          '</h2>' +
-          '<img src="' + entryImg[0] + '" alt="" />' +
+          '<h2 class="title">' +  entryTitle + '</h2>' +
+          '</a>' +
           '</li>';
       }
 
